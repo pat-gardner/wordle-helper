@@ -2,11 +2,15 @@
     import Box from './Box.svelte'
     import Lock from './Lock.svelte'
 
-    let locked = false
+    export let focused: boolean
+    export let locked: boolean
+    export let advanceFocus: () => void
+    export let onFocus: () => void
+
 </script>
 
 <div class="input-wrapper">
-    <Box {locked} on:input />
+    <Box {focused} {locked} {advanceFocus} {onFocus} />
     <Lock bind:locked />
 </div>
 
